@@ -13,13 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Sms3Application implements CommandLineRunner {
 
-    @Autowired
-    private InstitutionService institutionService;
-
-    @Autowired
-    private CourseService courseService;
-    @Autowired
-    private StudentService studentService;
 
     public static void main(String[] args) {
         SpringApplication.run(Sms3Application.class, args);
