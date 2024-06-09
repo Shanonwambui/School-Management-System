@@ -63,22 +63,7 @@
                     <finalName>sms-app</finalName>
                 </configuration>
             </plugin>
-            <!-- Maven JAR Plugin for customizing manifest -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <!-- Specify your main class here -->
-                            <mainClass>com.example.MyClass</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 
