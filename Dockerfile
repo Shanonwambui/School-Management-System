@@ -1,18 +1,16 @@
 
-FROM ubuntu:latest AS build
+FROM maven:3-openjdk-17 AS build
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
 COPY . .
 
-RUN chmod +x ./mvnw
-RUN ./mvnw package
+RUN mvn clean package DskipTests
 
+FROM openjdk:17.0.1-jdk-slim
 
-FROM openjdk:17-jdk-alpine
+COPY --from=build /target/sms3-0.0.1-SNAPSHOT.jar sms-app.jar
+
 
 EXPOSE 8080
 
-COPY --from=build target/sms3-0.0.1-SNAPSHOT.jar sms-app.jar
 
 ENTRYPOINT ["java", "-jar", "sms-app.jar"]
